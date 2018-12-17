@@ -4,13 +4,13 @@ Checked Box: [x]
 
 ╭── <Dev Strategy>
 [x]  -Obtain Google Maps API Key
-[]  -Add a full-screen map to your page using the Google Maps API
-[]  -Write the code required to display map markers identifying at least 5 locations
-[]    -Those locations should be displayed by default when page is loaded
+[x]  -Add a full-screen map to your page using the Google Maps API
+[x]  -Write the code required to display map markers identifying at least 5 locations
+[x]    -Those locations should be displayed by default when page is loaded
 []  -Implement a list view of the set of locations you have defined
 []  -Provide a filter option (e.g. text field or dropdown menu) that uses an input to filter both
-[]    -The list view
-[]    -The map markers
+  []  -The list view
+  []  -The map markers
 []  -Add functionality using third-party APIs to provide information when a map marker or list view entry is clicked
 []  -Be sure that all application components render on-screen in a responsive manner
 
@@ -28,9 +28,9 @@ Checked Box: [x]
 [x]  -Research a few candidates for third-part API integrations and choose one that makes sense for the project
         -Yelp
 [x]  -Obtain developer credentials for Google Maps (and your chosen API, if required)
-[]  -Test the API and build a static Google Map.
-[]    -Make sure to understand how to query your chosen API and successfully recieve JSON data from the response
-[x]    -Make sure to understand how the Google Maps Javascript API works and be able to initialize a map and add map markers without React
+[x]  -Test the API and build a static Google Map.
+[]    -Make sure to understand how to query your chosen API and successfully receive JSON data from the response
+[x]    -Make sure to understand how the Google Maps JavaScript API works and be able to initialize a map and add map markers without React
 
 ╭── <Start Building>
   -Commit early, commit often.

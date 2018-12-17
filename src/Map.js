@@ -1,3 +1,6 @@
+//To make things easier
+// Api key: AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
+// Geocoding services: //https://maps.googleapis.com/maps/api/geocode/json?address=10600+se+mcloughlin+blvd+ste+105+Milwaukie+OR&key=AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
 import React, { Component } from 'react';
 
 class Map extends Component {
@@ -18,10 +21,44 @@ class Map extends Component {
    * [Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
   */
   initMap = () => {
-    const map = new window.google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
+    // set google to window.google so that google can be accessed
+    const google = window.google
+    // create a new map with Milawaukie, OR as inital location
+    const map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 45.4465323, lng: -122.6323315},
+        zoom: 15
       })
+
+    // create an array to store default locations to be marked when map loads
+    const locations = [
+      {title: 'Things From Another World', location: {lat: 45.4434415, lng: -122.641392}},
+      {title: 'Dark Horse Comics', location: {lat: 45.44397559999999, lng: -122.640613}},
+      {title: 'Spring Creek Coffee House', location: {lat: 	45.4458543, lng: -122.6424054}},
+      {title: 'Wind Horse Cafe', location: {lat: 45.4460054, lng: -122.6419976}},
+      {title: 'Rohst Coffee', location: {lat: 45.4417007, lng: -122.6393937}}
+    ]
+
+    // create an array to hold all markers
+    const markers = []
+
+    // for every location in the locatons array
+    for (let i = 0; i < locations.length; i++) {
+      // set position and title
+      const position = locations[i].location;
+      const title = locations[i].title;
+      // create a new marker
+      const marker = new google.maps.Marker({
+        map: map,
+        position: position,
+        title: title,
+        animation: google.maps.Animation.DROP,
+        id: i
+      });
+      // push new marker to markers array
+      markers.push(marker);
+    }
+
+
     }
 
   render() {
@@ -51,5 +88,15 @@ function loadScript(url) {
   // keep script first in document by selecting the parentNode of the index (first script) and insert the script before it
   index.parentNode.insertBefore(script, index);
 }
+
+/* locations
+var locations = [
+  {title: 'Things From Another World', location: {lat: 45.4434415, lng: -122.641392}},
+  {title: 'Dark Horse Comics', location: {lat: 45.44397559999999, lng: -122.640613}},
+  {title: 'Spring Creek Coffee House', location: {lat: 	45.4458543, lng: -122.6424054}},
+  {title: 'Wind Horse Cafe', location: {lat: 45.4460054, lng: -122.6419976}},
+  {title: 'Rohst Coffee', location: {lat: 45.4417007, lng: -122.6393937}}
+];
+*/
 
 export default Map;
