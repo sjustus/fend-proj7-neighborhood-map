@@ -63,7 +63,9 @@ class Map extends Component {
 
   render() {
     return (
-      <div id="map"></div>
+      <div id="map-container">
+        <div id="map"></div>
+      </div>
     )
   }
 }
