@@ -1,10 +1,10 @@
-//To make things easier
-// Api key: AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
-// Geocoding services: //https://maps.googleapis.com/maps/api/geocode/json?address=10600+se+mcloughlin+blvd+ste+105+Milwaukie+OR&key=AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
+/*To make things easier:
+ *Geocoding services: //https://maps.googleapis.com/maps/api/geocode/json?address=10600+se+mcloughlin+blvd+ste+105+Milwaukie+OR&key=AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
+*/
 import React, { Component } from 'react';
 
 class Map extends Component {
-  // Wait until component loads add script and load map
+  // Wait until component loads to add script and load map
   componentDidMount() {
     /*
      * store api key in variable and plug into loadScript
@@ -57,9 +57,7 @@ class Map extends Component {
       // push new marker to markers array
       markers.push(marker);
     }
-
-
-    }
+  }
 
   render() {
     return (
@@ -74,7 +72,7 @@ class Map extends Component {
  * Function that will load the Google Maps API script tag
  * Takes url as parameter -- url will be the Maps script needed
  * Resource: [Udacity | Neighborhood Map [2] - Add Google Maps to React App [Without Any External Components]] (https://www.youtube.com/watch?v=W5LhLZqj76s) for loadScript function
- * Also saw this function in [Making Google Maps Work With React] (https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/) (article) which references the loadJs function found at [loadJS] (https://github.com/filamentgroup/loadJS)
+ * And [Making Google Maps Work With React] (https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/) (article) which references the loadJs function found at [loadJS] (https://github.com/filamentgroup/loadJS)
  */
 function loadScript(url) {
   // reference to the first script tag in the document
@@ -90,15 +88,5 @@ function loadScript(url) {
   // keep script first in document by selecting the parentNode of the index (first script) and insert the script before it
   index.parentNode.insertBefore(script, index);
 }
-
-/* locations
-var locations = [
-  {title: 'Things From Another World', location: {lat: 45.4434415, lng: -122.641392}},
-  {title: 'Dark Horse Comics', location: {lat: 45.44397559999999, lng: -122.640613}},
-  {title: 'Spring Creek Coffee House', location: {lat: 	45.4458543, lng: -122.6424054}},
-  {title: 'Wind Horse Cafe', location: {lat: 45.4460054, lng: -122.6419976}},
-  {title: 'Rohst Coffee', location: {lat: 45.4417007, lng: -122.6393937}}
-];
-*/
 
 export default Map;
