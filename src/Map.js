@@ -29,6 +29,13 @@ class Map extends Component {
         zoom: 15
       })
 
+    // declare infowindow content
+    const contentString = `Hello World`
+
+    // create a new infoWindow
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString
+    })
     // create an array to hold all markers
     const markers = []
 
@@ -45,6 +52,9 @@ class Map extends Component {
         animation: google.maps.Animation.DROP,
         id: i
       });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      })
       // push new marker to markers array
       markers.push(marker);
     }
