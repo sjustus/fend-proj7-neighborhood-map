@@ -1,6 +1,3 @@
-/*To make things easier:
- *Geocoding services: //https://maps.googleapis.com/maps/api/geocode/json?address=10600+se+mcloughlin+blvd+ste+105+Milwaukie+OR&key=AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
-*/
 import React, { Component } from 'react';
 
 class Map extends Component {
@@ -11,10 +8,40 @@ class Map extends Component {
     }
   }
 
-  // Wait until component loads to add script and load map
+  // Wait until component loads
   componentDidMount() {
-    // Call getVenues to get nearby venues
+    // Then call getVenues to get coffee shops in Milwaukie
     this.getVenues()
+  }
+
+  /*
+   *Function to call FourSquare API & get coffee venues in Milwaukie
+   * Resource: [MDN Web Docs -- Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for how to use Fetch API & [FourSquare API Docs](https://developer.foursquare.com/docs/api)
+  */
+  getVenues = () => {
+    // Store client ID and Secret in variables
+    const clientID = "21DS0IL1R3KLXHEZIJGPFOCHKMCCPOB34NDSH2KV4P1MO23P";
+    const clientSecret = "4KEIITYLHHKCCSBTNK1ASEQ23B4TFBYAO5P14DZTKHWJEZR3";
+
+    // Use Fetch API to call FourSquare api URL -- Plug in client ID & Secret
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20191801&limit=10&near=Milwaukie,OR&query=coffee`)
+      // Take response & extract JSON datat
+      .then(resp => resp.json())
+      // Set state to data from response, then call loadMap
+      .then(data => {
+        console.log(data.response.groups[0].items)
+        this.setState({
+          venues: data.response.groups[0].items
+        }, this.loadMap());
+      })
+      // If the API returns an error log a message indicating the error
+      .catch(error => {
+        console.log(`An error occurred: ${error}`);
+      });
+  }
+
+  // Function to load Google Maps API script to page and call initmap callback function
+  loadMap = () => {
     /*
      * store api key in variable and plug into loadScript
      * idea from [Using Google Map in React Component] (https://stackoverflow.com/questions/48493960/using-google-map-in-react-component)
@@ -25,28 +52,9 @@ class Map extends Component {
     // set window.initMap to this.initMap so that it can be called
     window.initMap = this.initMap;
   }
-
-  getVenues = () => {
-    const clientID = "21DS0IL1R3KLXHEZIJGPFOCHKMCCPOB34NDSH2KV4P1MO23P";
-    const clientSecret = "4KEIITYLHHKCCSBTNK1ASEQ23B4TFBYAO5P14DZTKHWJEZR3";
-
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20191801&limit=10&near=Milwaukie,OR&query=coffee`)
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data.response.groups[0].items)
-        this.setState({
-          venues: data.response.groups[0].items
-        });
-      })
-      .catch(error => {
-        console.log(`An error occurred: ${error}`);
-      });
-
-
-  }
   /*
    *Refactor initMap function from Google docs app to ES6
-   * [Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
+   *[Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
   */
   initMap = () => {
     // set google to window.google so that google can be accessed
@@ -57,6 +65,15 @@ class Map extends Component {
         zoom: 15
       })
 
+      // map over venues held in state and for each venue
+    this.state.venues.map(aVenue => {
+      // create a new marker
+      const marker = new google.maps.Marker({
+          map: map,
+          position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
+        })
+      })
+
   /*
     // declare infowindow content
     const contentString = `Hello World`
@@ -65,29 +82,7 @@ class Map extends Component {
     const infowindow = new google.maps.InfoWindow({
       content: contentString
     })
-    // create an array to hold all markers
-    const markers = []
 
-    // for every location in the locatons array
-    for (let i = 0; i < this.props.locations.length; i++) {
-      // set position and title
-      const position = this.props.locations[i].location;
-      const title = this.props.locations[i].title;
-      // create a new marker
-      const marker = new google.maps.Marker({
-        map: map,
-        position: position,
-        title: title,
-        animation: google.maps.Animation.DROP,
-        id: i
-      });
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-        console.log(infowindow)
-      })
-      // push new marker to markers array
-      markers.push(marker);
-    }
   */
 
   }
