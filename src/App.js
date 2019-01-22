@@ -7,7 +7,6 @@ import Listview from './Listview.js'
 class App extends Component {
   constructor(props) {
     super(props);
-    // Store venues in state to be accessble throughout app
     this.state = {
       venues: []
     }

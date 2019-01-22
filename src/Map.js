@@ -6,7 +6,6 @@ import React, { Component } from 'react';
 class Map extends Component {
   constructor(props) {
     super(props);
-    // Store venues in state to be accessble throughout app
     this.state = {
       venues: []
     }
