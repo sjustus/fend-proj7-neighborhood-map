@@ -1,29 +1,60 @@
-/*To make things easier:
- *Geocoding services: //https://maps.googleapis.com/maps/api/geocode/json?address=10600+se+mcloughlin+blvd+ste+105+Milwaukie+OR&key=AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA
-*/
 import React, { Component } from 'react';
 
 class Map extends Component {
-  // Wait until component loads to add script and load map
-  componentDidMount() {
-    this.loadMap();
+  constructor(props) {
+    super(props);
+    this.state = {
+      venues: []
+    }
   }
 
-  // Function to load script to page and call init map
+  // Wait until component loads
+  componentDidMount() {
+    // Then call getVenues to get coffee shops in Milwaukie
+    this.getVenues()
+  }
+
+  /*
+   *Function to call FourSquare API & get coffee venues in Milwaukie
+   * Resource: [MDN Web Docs -- Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for how to use Fetch API & [FourSquare API Docs](https://developer.foursquare.com/docs/api)
+  */
+  getVenues = () => {
+    // Store client ID and Secret in variables
+    const clientID = "21DS0IL1R3KLXHEZIJGPFOCHKMCCPOB34NDSH2KV4P1MO23P";
+    const clientSecret = "4KEIITYLHHKCCSBTNK1ASEQ23B4TFBYAO5P14DZTKHWJEZR3";
+
+    // Use Fetch API to call FourSquare api URL -- Plug in client ID & Secret
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20191801&limit=10&near=Milwaukie,OR&query=coffee`)
+      // Take response & extract JSON datat
+      .then(resp => resp.json())
+      // Set state to data from response, then call loadMap
+      .then(data => {
+        console.log(data.response.groups[0].items)
+        this.setState({
+          venues: data.response.groups[0].items
+        }, this.loadMap());
+      })
+      // If the API returns an error log a message indicating the error
+      .catch(error => {
+        console.log(`An error occurred: ${error}`);
+      });
+  }
+
+  // Function to load Google Maps API script to page and call initmap callback function
   loadMap = () => {
     /*
      * store api key in variable and plug into loadScript
      * idea from [Using Google Map in React Component] (https://stackoverflow.com/questions/48493960/using-google-map-in-react-component)
     */
     const apiKey = 'AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA';
+    // Load google maps api script to index.html
     loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`)
     // set window.initMap to this.initMap so that it can be called
     window.initMap = this.initMap;
   }
-
   /*
    *Refactor initMap function from Google docs app to ES6
-   * [Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
+   *[Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
   */
   initMap = () => {
     // set google to window.google so that google can be accessed
@@ -34,35 +65,26 @@ class Map extends Component {
         zoom: 15
       })
 
-  /*  // declare infowindow content
+      // map over venues held in state and for each venue
+    this.state.venues.map(aVenue => {
+      // create a new marker
+      const marker = new google.maps.Marker({
+          map: map,
+          position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
+        })
+      })
+
+  /*
+    // declare infowindow content
     const contentString = `Hello World`
 
     // create a new infoWindow
     const infowindow = new google.maps.InfoWindow({
       content: contentString
     })
-    // create an array to hold all markers
-    const markers = []
 
-    // for every location in the locatons array
-    for (let i = 0; i < this.props.venues.length; i++) {
-      // set position and title
-      const position = this.props.venues[i].location;
-      const title = this.props.venues[i].title;
-      // create a new marker
-      const marker = new google.maps.Marker({
-        map: map,
-        position: position,
-        title: title,
-        animation: google.maps.Animation.DROP,
-        id: i
-      });
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      })
-      // push new marker to markers array
-      markers.push(marker);
-    } */
+  */
+
   }
 
   render() {
