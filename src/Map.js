@@ -4,18 +4,47 @@
 import React, { Component } from 'react';
 
 class Map extends Component {
+  constructor(props) {
+    super(props);
+    // Store venues in state to be accessble throughout app
+    this.state = {
+      venues: []
+    }
+  }
+
   // Wait until component loads to add script and load map
   componentDidMount() {
+    // Call getVenues to get nearby venues
+    this.getVenues()
     /*
      * store api key in variable and plug into loadScript
      * idea from [Using Google Map in React Component] (https://stackoverflow.com/questions/48493960/using-google-map-in-react-component)
     */
     const apiKey = 'AIzaSyCJtkfy3qr5FkD3QLKz_YyMCm4igwa3YbA';
+    // Load google maps api script to index.html
     loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`)
     // set window.initMap to this.initMap so that it can be called
     window.initMap = this.initMap;
   }
 
+  getVenues = () => {
+    const clientID = "21DS0IL1R3KLXHEZIJGPFOCHKMCCPOB34NDSH2KV4P1MO23P";
+    const clientSecret = "4KEIITYLHHKCCSBTNK1ASEQ23B4TFBYAO5P14DZTKHWJEZR3";
+
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20191801&limit=10&near=Milwaukie,OR&query=coffee`)
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data.response.groups[0].items)
+        this.setState({
+          venues: data.response.groups[0].items
+        });
+      })
+      .catch(error => {
+        console.log(`An error occurred: ${error}`);
+      });
+
+
+  }
   /*
    *Refactor initMap function from Google docs app to ES6
    * [Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
@@ -29,6 +58,7 @@ class Map extends Component {
         zoom: 15
       })
 
+  /*
     // declare infowindow content
     const contentString = `Hello World`
 
@@ -54,10 +84,13 @@ class Map extends Component {
       });
       marker.addListener('click', function() {
         infowindow.open(map, marker);
+        console.log(infowindow)
       })
       // push new marker to markers array
       markers.push(marker);
     }
+  */
+
   }
 
   render() {
