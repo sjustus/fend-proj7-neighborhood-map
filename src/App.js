@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     //store locations in state in order to be accessible to Map & Listview components
     this.state = {
-      locations: [
+       venues: [
         {title: 'Things From Another World', location: {lat: 45.4434415, lng: -122.641392}},
         {title: 'Dark Horse Comics', location: {lat: 45.44397559999999, lng: -122.640613}},
         {title: 'Spring Creek Coffee House', location: {lat: 	45.4458543, lng: -122.6424054}},
@@ -25,7 +25,7 @@ class App extends Component {
 
         <main>
           <Listview />
-          <Map locations={this.state.locations}/>
+          <Map venues={this.state.venues}/>
         </main>
       </div>
     )

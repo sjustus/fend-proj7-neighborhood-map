@@ -6,6 +6,11 @@ import React, { Component } from 'react';
 class Map extends Component {
   // Wait until component loads to add script and load map
   componentDidMount() {
+    this.loadMap();
+  }
+
+  // Function to load script to page and call init map
+  loadMap = () => {
     /*
      * store api key in variable and plug into loadScript
      * idea from [Using Google Map in React Component] (https://stackoverflow.com/questions/48493960/using-google-map-in-react-component)
@@ -29,7 +34,7 @@ class Map extends Component {
         zoom: 15
       })
 
-    // declare infowindow content
+  /*  // declare infowindow content
     const contentString = `Hello World`
 
     // create a new infoWindow
@@ -40,10 +45,10 @@ class Map extends Component {
     const markers = []
 
     // for every location in the locatons array
-    for (let i = 0; i < this.props.locations.length; i++) {
+    for (let i = 0; i < this.props.venues.length; i++) {
       // set position and title
-      const position = this.props.locations[i].location;
-      const title = this.props.locations[i].title;
+      const position = this.props.venues[i].location;
+      const title = this.props.venues[i].title;
       // create a new marker
       const marker = new google.maps.Marker({
         map: map,
@@ -57,7 +62,7 @@ class Map extends Component {
       })
       // push new marker to markers array
       markers.push(marker);
-    }
+    } */
   }
 
   render() {
