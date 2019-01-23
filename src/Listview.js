@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import ListItem from './ListItem.js'
 
 class Listview extends Component {
+
 
   render() {
     return (
@@ -12,7 +14,7 @@ class Listview extends Component {
 
         <div className="map-search-results">
           <ol>
-
+            {this.props.venues.map(venue => <ListItem />) }
           </ol>
         </div>
       </section>

@@ -8,12 +8,9 @@ class Map extends Component {
     }
   }
 
-  // Wait until component loads
   componentDidMount() {
-    // Then call getVenues to get coffee shops in Milwaukie
     this.getVenues()
   }
-
   /*
    *Function to call FourSquare API & get coffee venues in Milwaukie
    * Resource: [MDN Web Docs -- Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for how to use Fetch API & [FourSquare API Docs](https://developer.foursquare.com/docs/api)
@@ -73,7 +70,7 @@ class Map extends Component {
           <div class="card-header">
             <h3>${aVenue.venue.name}</h3>
           </div>
-          <div class="card-main">            
+          <div class="card-main">
             <div class="main-description">
               <p>${aVenue.venue.location.address}</p>
             </div>

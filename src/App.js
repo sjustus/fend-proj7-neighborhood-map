@@ -18,7 +18,7 @@ class App extends Component {
         <Header />
 
         <main>
-          <Listview />
+          <Listview venues={this.state.venues} />
           <Map venues={this.state.venues} />
         </main>
       </div>
