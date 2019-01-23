@@ -5,8 +5,8 @@ class ListItem extends Component {
     return (
       <li>
         <div className="venue-item">
-          <h3 className="venue-name">Venue Name</h3>
-          <p className="venu-address">Venue Address</p>
+          <h3 className="venue-name">{this.props.venue.venue.name}</h3>
+          <p className="venu-address"> {this.props.venue.venue.location.address}</p>
         </div>
       </li>
     )

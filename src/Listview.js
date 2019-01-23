@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ListItem from './ListItem.js'
 
 class Listview extends Component {
-
   render() {
     return (
       <section className="map-listview">

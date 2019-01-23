@@ -41,6 +41,7 @@ Checked Box: [x]
 [] Interface Design
 []    Responsiveness: All app components render on-screen in a responsive manner
 []    Usability: Usable across modern desktop, tablet, and phone browsers
+
 []  Application Functionality
 []    Location Filter
 []      Includes text field or input that filers map markers and list items to matching locations
@@ -56,6 +57,7 @@ Checked Box: [x]
 []        Map also displays the filter subset of location markers when filter is applied - [Learn how to filter map markers]
 []        Clicking a marker displays unique information about a location (modal, separate dive, inside an info window)
 []      Any additional functionality provided in the app runs error-free
+
 []  Asynchronous Data Usage
 []    Asynchronous API Requests
 []      Application utilizes the Google Maps API
@@ -63,19 +65,24 @@ Checked Box: [x]
 []    Error Handling
 []      Data requests that fail are handled gracefully using common fallback techniques -- meaning user isn't left wondering why a component isn't working
 []      There is a visual indication on the page that it didn't load
+
 []  Documentation
 []    README
 []      A README me file is includes detailing all steps required to run the project
 []    Comments
 []      Comments are present and effectively explain longer code procedures
+
 []  Location Details Functionality
 []    Additional Location Data
 []      Functionality providing additional data about a location is provided and sourced from a third party API (in the marker's infoWindow or a sidebar, list view, modal)
 []      Provide attribution for the source of additional data
+
 []  Error free
 []    Application runs without console errors
+
 []  Usability
 []    Functionality is presented in a usable and responsive manner
+
 []  Accessibility
 []    Focus
 []      Focus is appropriately manages allowing users to noticeably tab through each of the important elements of the page
@@ -85,10 +92,12 @@ Checked Box: [x]
 []      For those elements in which a semantic element is not available, appropriate ARIA roles are defines
 []  Accessible Images
 []    All content-relates images include appropriate alt text that clearly describes the content of the image
+
 []  Offline Use
 []    Service Worker
 []      When available in the browser, the site uses a service worker to cache responses to request for site assets
 []      Visited pages are rendered when there is no network access
+
 []  Application Architecture
 []    Proper Use of React
 []      React code follows a reasonable component structure
@@ -98,4 +107,14 @@ Checked Box: [x]
 []      There are at least 5 locations in the model (hard-coded or retrieved from a data API)
 []      There no errors
 []      There are no warnings that resulted from no following the best practices listed in the documentation, such as using key for list items
-[]      All coded is functional and formatted properly
+[]      All code is functional and formatted properly
+
+Next Steps:
+-Connect FourSquare
+-Add infowindows
+-Dynamically populate content in infowindow with data from FourSquare api
+-Display default locations in sidebar
+-Implement search filter to filter locations in list and markers on map based on user input
+-Style website and add responsiveness
+-Audit for accessibility and make adjustments as necessary
+-Implement service worker
