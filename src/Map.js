@@ -67,23 +67,36 @@ class Map extends Component {
 
       // map over venues held in state and for each venue
     this.state.venues.map(aVenue => {
+      // declare infowindow content
+      const contentString = `
+        <div class="card">
+          <div class="card-header">
+            <h3>${aVenue.venue.name}</h3>
+          </div>
+          <div class="card-main">            
+            <div class="main-description">
+              <p>${aVenue.venue.location.address}</p>
+            </div>
+          </div>
+        </div>
+      `
+
+      // create a new infoWindow
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+      })
       // create a new marker
       const marker = new google.maps.Marker({
           map: map,
           position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
+          id: aVenue.venue.id,
+          title: aVenue.venue.name,
         })
+        // Add a listener to each marker that triggers an infowindow when clicked
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
       })
-
-  /*
-    // declare infowindow content
-    const contentString = `Hello World`
-
-    // create a new infoWindow
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString
-    })
-
-  */
 
   }
 
