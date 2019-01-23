@@ -3,7 +3,6 @@ import ListItem from './ListItem.js'
 
 class Listview extends Component {
 
-
   render() {
     return (
       <section className="map-listview">
@@ -14,7 +13,7 @@ class Listview extends Component {
 
         <div className="map-search-results">
           <ol>
-            {this.props.venues.map(venue => <ListItem />) }
+            {this.props.venues.map((venue, i) => <ListItem venue={venue} key={i} />) }
           </ol>
         </div>
       </section>
