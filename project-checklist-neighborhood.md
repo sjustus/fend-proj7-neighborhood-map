@@ -7,11 +7,11 @@ Checked Box: [x]
 [x]  -Add a full-screen map to your page using the Google Maps API
 [x]  -Write the code required to display map markers identifying at least 5 locations
 [x]    -Those locations should be displayed by default when page is loaded
-[]  -Implement a list view of the set of locations you have defined
+[x]  -Implement a list view of the set of locations you have defined
 []  -Provide a filter option (e.g. text field or dropdown menu) that uses an input to filter both
-  []  -The list view
+  [x]  -The list view
   []  -The map markers
-[]  -Add functionality using third-party APIs to provide information when a map marker or list view entry is clicked
+[x]  -Add functionality using third-party APIs to provide information when a map marker or list view entry is clicked
 []  -Be sure that all application components render on-screen in a responsive manner
 
 ╭── <How to Approach Complex Projects>
@@ -47,15 +47,15 @@ Checked Box: [x]
 []      Includes text field or input that filers map markers and list items to matching locations
 []        Filter function runs error free
 []    List View
-[]        A list-view of location names is provided and displays all locations and by default
+[x]        A list-view of location names is provided and displays all locations and by default
 []        Displays the filtered subset of locations when filter is applied
-[]        Clicking a location on the list displays unique information about the location - [Use infoWindow]
+[x]        Clicking a location on the list displays unique information about the location - [Use infoWindow]
 []          Clicking on a location also animates its associated map marker (e.g. bouncing or changing color) - [Review how to do this in videos]
 []        List functionality is responsive and runs error free
 []    Map and Markers
-[]      Map displays all location markers by default
+[x]      Map displays all location markers by default
 []        Map also displays the filter subset of location markers when filter is applied - [Learn how to filter map markers]
-[]        Clicking a marker displays unique information about a location (modal, separate dive, inside an info window)
+[x]        Clicking a marker displays unique information about a location (modal, separate dive, inside an info window)
 []      Any additional functionality provided in the app runs error-free
 
 []  Asynchronous Data Usage
