@@ -6,9 +6,7 @@ class Listview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      venues: [],
       query: '',
-      results: []
     }
   }
 
@@ -16,6 +14,7 @@ class Listview extends Component {
     this.setState({query})
     console.log(query)
   }
+
   render() {
     // Set a variable to hold venues that match the query
     let showingVenues
