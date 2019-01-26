@@ -8,12 +8,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      venues: []
+      venues: [],
+      query: ''
     }
   }
 
   componentDidMount() {
     this.getVenues()
+  }
+
+  updateQuery = (query) => {
+    this.setState({query})
+    console.log(query)
   }
   /*
    *Function to call FourSquare API & get coffee venues in Milwaukie
@@ -107,7 +113,12 @@ class App extends Component {
         <Header />
 
         <main>
-          <Listview venues={this.state.venues} getVenues={this.getVenues} />
+          <Listview
+            venues={this.state.venues}
+            getVenues={this.getVenues}
+            updateQuery={this.updateQuery}
+            query={this.state.query}
+          />
           <Map venues={this.state.venues} />
         </main>
       </div>
