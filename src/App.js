@@ -9,18 +9,23 @@ class App extends Component {
     super(props);
     this.state = {
       venues: [],
-      query: ''
+      query: '',
+      markers: []
     }
   }
 
+  // Wait until component mounts
   componentDidMount() {
+    // Then get venues from FourSquare API
     this.getVenues()
   }
 
+  // Function to update query state based on query input
   updateQuery = (query) => {
     this.setState({query})
     console.log(query)
   }
+
   /*
    *Function to call FourSquare API & get coffee venues in Milwaukie
    * Resource: [MDN Web Docs -- Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for how to use Fetch API & [FourSquare API Docs](https://developer.foursquare.com/docs/api)
@@ -32,7 +37,7 @@ class App extends Component {
 
     // Use Fetch API to call FourSquare api URL -- Plug in client ID & Secret
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20191801&limit=10&near=Milwaukie,OR&query=coffee`)
-      // Take response & extract JSON datat
+      // Take response & extract JSON data
       .then(resp => resp.json())
       // Set state to data from response, then call loadMap
       .then(data => {
@@ -59,6 +64,7 @@ class App extends Component {
     // set window.initMap to this.initMap so that it can be called
     window.initMap = this.initMap;
   }
+
   /*
    *Refactor initMap function from Google docs app to ES6
    *[Google Maps JavaScript API Overview] (https://developers.google.com/maps/documentation/javascript/tutorial)
@@ -92,19 +98,20 @@ class App extends Component {
       const infowindow = new google.maps.InfoWindow({
         content: contentString
       })
+
       // create a new marker
       const marker = new google.maps.Marker({
-          map: map,
-          position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
-          id: aVenue.venue.id,
-          title: aVenue.venue.name,
-        })
-        // Add a listener to each marker that triggers an infowindow when clicked
+        map: map,
+        position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
+        id: aVenue.venue.id,
+        title: aVenue.venue.name,
+      })
+
+      // Add a listener to each marker that triggers an infowindow when clicked
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-      })
-
+    })
   }
 
   render() {
@@ -119,7 +126,10 @@ class App extends Component {
             updateQuery={this.updateQuery}
             query={this.state.query}
           />
-          <Map venues={this.state.venues} />
+
+          <Map
+            venues={this.state.venues} 
+          />
         </main>
       </div>
     )

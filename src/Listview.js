@@ -5,13 +5,14 @@ import escapeRegExp from 'escape-string-regexp'
 class Listview extends Component {
 
   render() {
-    // Set a variable to hold venues that match the query
+    // Set a variable to hold venues that will be shown (matches the query)
     let showingVenues
     // Check for a query in the input, if truthy
     if (this.props.query) {
-      /* Wrap query in escapeRegExp to escape out special characters
+      /* Set variable match to query - use escapeRegExp to escape special characters
        * Filter through venues and for each venue use test() to check for a match against the query
-       * And set matching venues to variable match
+       * Filter though venues, and for each venue
+       * Call test() on match to check for a match between the query and venue's name
        * Resource: [State Management - Controlled Components](https://classroom.udacity.com/nanodegrees/nd001/parts/f4471fff-fffb-4281-8c09-2478625c9597/modules/82766b2b-1870-4904-aa90-8ccbe63928c5/lessons/14331e60-a548-4cfb-a326-054545da8927/concepts/fc3f11d3-8779-4d8a-8a23-1cd782f8ddf3)
       */
       const match = new RegExp(escapeRegExp(this.props.query), 'i')
