@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Map from './Map.js'
-import Header from './Header.js'
+import './Responsive.css';
+import Map from './Map.js';
+import Header from './Header.js';
 import Listview from './Listview.js'
 
 class App extends Component {
@@ -120,15 +121,14 @@ class App extends Component {
         <Header />
 
         <main>
+          <Map
+            venues={this.state.venues}
+          />
           <Listview
             venues={this.state.venues}
             getVenues={this.getVenues}
             updateQuery={this.updateQuery}
             query={this.state.query}
-          />
-
-          <Map
-            venues={this.state.venues} 
           />
         </main>
       </div>

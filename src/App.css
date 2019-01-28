@@ -1,11 +1,14 @@
+/* Import fonts from Google Fonts API (https://fonts.google.com/) */
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Montserrat');
+
 html {
 	font-size: 10px;
 }
 
 body,td,th,p{
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Montserrat', Helvetica,Arial, sans-serif;
 	font-size: 1.4rem;
-	color: #333;
+	color: #1e1f26;
 	line-height: 1.5;
 }
 
@@ -19,7 +22,7 @@ img, embed, object, video {
 
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
-	color: #333;
+	color: #1e1f26;
 }
 
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -27,8 +30,31 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 
 header {
-  border-bottom: solid #000 1px;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: baseline;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background-color: #e3d2bc;
 }
+
+header h1 {
+	font-size: 42px;
+	font-family: 'Major Mono Display';
+	padding-left: 50px;
+	color: #1e1f26;
+	font-weight: bold;
+}
+
+header span {
+	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	padding-left: 15px;
+}
+
 main {
   display: flex;
   min-height: 100%;
@@ -38,11 +64,56 @@ main {
 	position: fixed;
 	height: 100%;
 	right: 0;
-	width: 66%;
+	width: 66.66%;
 }
+
 /* Must set map height in order to define the size of the div that contains it -- Google Maps docs */
 #map {
   width: 100%;
   height: 100%;
 
+}
+
+.listview {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	min-width: 33.33%;
+}
+
+.search-venues-bar {
+	display: flex;
+	flex-flow: row nowrap;
+	min-width: 100%;
+	top: 0;
+	left: 0;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19),
+}
+
+.search-venues-input-wrapper {
+	flex: 1;
+}
+
+.search-venues-bar input {
+	width: 100%;
+	padding: 15px 10px;
+	font-size: 1.25em;
+	border: none;
+	outline: none;
+}
+
+.venues-list li {
+	overflow: hidden,
+}
+
+.venues-list h3 {
+	color: #1e1f26;
+}
+
+.venue-item {
+	margin: 10px 25px;
+}
+.venue-item p {
+	color: #735149;
 }

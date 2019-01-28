@@ -23,24 +23,28 @@ class Listview extends Component {
     }
 
     return (
-      <section className="map-listview">
-        <div className="map-search-bar">
-          <input
-            type="text"
-            id="search"
-            placeholder="Search Locations" value={this.props.query}
-            onChange={(event) => {this.props.updateQuery(event.target.value)}}
-          />
-          <button>Search</button>
-        </div>
+      <section className="listview">
+        
+          <div className="search-venues-bar">
+            <div className="search-venues-input-wrapper">
+              <input
+                type="text"
+                id="search"
+                placeholder="Search Venues by Name" value={this.props.query}
+                onChange={(event) => {this.props.updateQuery(event.target.value)}}
+              />
+            </div>
+          </div>
 
-        <div className="map-search-results">
-          <ol>
-            {/* Map over showingVenues and display and Listitem for each*/}
-            {showingVenues.map((venue, i) => <ListItem venue={venue} key={i} />) }
-          </ol>
-        </div>
+          <div className="venues-container">
+            <ol className="venues-list">
+              {/* Map over showingVenues and display and Listitem for each*/}
+              {showingVenues.map((venue, i) => <ListItem venue={venue} key={i} />) }
+            </ol>
+          </div>
+
       </section>
+
 
     )
   }
