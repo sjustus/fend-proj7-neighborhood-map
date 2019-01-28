@@ -23,18 +23,20 @@ class Listview extends Component {
     }
 
     return (
-      <section className="listview">
-        
-          <div className="search-venues-bar">
+      <section className="listview" aria-label="coffee venues">
+
+          <form className="search-venues-bar">
             <div className="search-venues-input-wrapper">
               <input
+                role="search"
                 type="text"
                 id="search"
                 placeholder="Search Venues by Name" value={this.props.query}
                 onChange={(event) => {this.props.updateQuery(event.target.value)}}
               />
+              <label for="search">Search Venues</label>
             </div>
-          </div>
+          </form>
 
           <div className="venues-container">
             <ol className="venues-list">

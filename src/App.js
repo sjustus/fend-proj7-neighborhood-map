@@ -119,11 +119,10 @@ class App extends Component {
     return (
       <div id="App">
         <Header />
-
-        <main>
-          <Map
-            venues={this.state.venues}
-          />
+        <Map
+          venues={this.state.venues}
+        />
+        <main>          
           <Listview
             venues={this.state.venues}
             getVenues={this.getVenues}

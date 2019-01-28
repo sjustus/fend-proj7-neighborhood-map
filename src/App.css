@@ -29,6 +29,20 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	display: block;
 }
 
+.skip-link {
+	position: absolute;
+	top: -4rem;
+	left: 0;
+	background: #3397DB;
+	color: white;
+	padding: 8px;
+	z-index: 100;
+}
+.skip-link:focus {
+	top:0;
+	color: white;
+}
+
 header {
 	display: flex;
 	flex-flow: row nowrap;
@@ -101,6 +115,10 @@ main {
 	font-size: 1.25em;
 	border: none;
 	outline: none;
+}
+
+.search-venues-bar label {
+	display: none;
 }
 
 .venues-list li {
