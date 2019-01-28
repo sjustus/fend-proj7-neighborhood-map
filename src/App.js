@@ -122,7 +122,7 @@ class App extends Component {
         <Map
           venues={this.state.venues}
         />
-        <main>          
+        <main id="maincontent" tabindex="-1">          
           <Listview
             venues={this.state.venues}
             getVenues={this.getVenues}

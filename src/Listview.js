@@ -34,7 +34,7 @@ class Listview extends Component {
                 placeholder="Search Venues by Name" value={this.props.query}
                 onChange={(event) => {this.props.updateQuery(event.target.value)}}
               />
-              <label for="search">Search Venues</label>
+              <label htmlFor="search">Search Venues</label>
             </div>
           </form>
 
