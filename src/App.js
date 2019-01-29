@@ -4,6 +4,7 @@ import './Responsive.css';
 import Map from './Map.js';
 import Header from './Header.js';
 import Listview from './Listview.js'
+import AttributionImg from './Powered-by-foursquare-grey.svg'
 
 class App extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class App extends Component {
       })
       // If the API returns an error log a message indicating the error
       .catch(error => {
-        console.log(`An error occurred: ${error}`);
+        alert(`An error occurred: ${error}`);
       });
   }
 
@@ -91,6 +92,7 @@ class App extends Component {
             <div class="main-description">
               <p>${aVenue.venue.location.address}</p>
             </div>
+            <img src={AttributionImg} alt="Powered By FourSquare" width="150" height="100">
           </div>
         </div>
       `
@@ -122,7 +124,7 @@ class App extends Component {
         <Map
           venues={this.state.venues}
         />
-        <main id="maincontent" tabindex="-1">          
+        <main id="maincontent" tabindex="-1">
           <Listview
             venues={this.state.venues}
             getVenues={this.getVenues}

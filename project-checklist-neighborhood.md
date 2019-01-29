@@ -12,7 +12,7 @@ Checked Box: [x]
   [x]  -The list view
   []  -The map markers
 [x]  -Add functionality using third-party APIs to provide information when a map marker or list view entry is clicked
-[]  -Be sure that all application components render on-screen in a responsive manner
+[x]  -Be sure that all application components render on-screen in a responsive manner
 
 ╭── <How to Approach Complex Projects>
 [x]  -Make sure you clearly  understand the requirements and make note of anything you're not sure how to implement
@@ -29,7 +29,7 @@ Checked Box: [x]
         -Yelp
 [x]  -Obtain developer credentials for Google Maps (and your chosen API, if required)
 [x]  -Test the API and build a static Google Map.
-[]    -Make sure to understand how to query your chosen API and successfully receive JSON data from the response
+[x]    -Make sure to understand how to query your chosen API and successfully receive JSON data from the response
 [x]    -Make sure to understand how the Google Maps JavaScript API works and be able to initialize a map and add map markers without React
 
 ╭── <Start Building>
@@ -38,9 +38,9 @@ Checked Box: [x]
   -First make it work. Then make it better. Once you get it working then you can focus on improving the code quality
 
 ╭── <Rubric>
-[] Interface Design
-[]    Responsiveness: All app components render on-screen in a responsive manner
-[]    Usability: Usable across modern desktop, tablet, and phone browsers
+[x] Interface Design
+[x]    Responsiveness: All app components render on-screen in a responsive manner
+[x]    Usability: Usable across modern desktop, tablet, and phone browsers
 
 []  Application Functionality
 []    Location Filter
@@ -48,7 +48,7 @@ Checked Box: [x]
 []        Filter function runs error free
 []    List View
 [x]        A list-view of location names is provided and displays all locations and by default
-[]        Displays the filtered subset of locations when filter is applied
+[x]        Displays the filtered subset of locations when filter is applied
 [x]        Clicking a location on the list displays unique information about the location - [Use infoWindow]
 []          Clicking on a location also animates its associated map marker (e.g. bouncing or changing color) - [Review how to do this in videos]
 []        List functionality is responsive and runs error free
@@ -59,11 +59,11 @@ Checked Box: [x]
 []      Any additional functionality provided in the app runs error-free
 
 []  Asynchronous Data Usage
-[]    Asynchronous API Requests
-[]      Application utilizes the Google Maps API
-[]      All utilizes at least one other non-Googly third party API
+[x]    Asynchronous API Requests
+[x]      Application utilizes the Google Maps API
+[x]      All utilizes at least one other non-Google third party API
 []    Error Handling
-[]      Data requests that fail are handled gracefully using common fallback techniques -- meaning user isn't left wondering why a component isn't working
+[x]      Data requests that fail are handled gracefully using common fallback techniques -- meaning user isn't left wondering why a component isn't working
 []      There is a visual indication on the page that it didn't load
 
 []  Documentation
@@ -74,14 +74,14 @@ Checked Box: [x]
 
 []  Location Details Functionality
 []    Additional Location Data
-[]      Functionality providing additional data about a location is provided and sourced from a third party API (in the marker's infoWindow or a sidebar, list view, modal)
+[x]      Functionality providing additional data about a location is provided and sourced from a third party API (in the marker's infoWindow or a sidebar, list view, modal)
 []      Provide attribution for the source of additional data
 
 []  Error free
 []    Application runs without console errors
 
-[]  Usability
-[]    Functionality is presented in a usable and responsive manner
+[x]  Usability
+[x]    Functionality is presented in a usable and responsive manner
 
 []  Accessibility
 []    Focus
@@ -104,17 +104,7 @@ Checked Box: [x]
 []      State control is manage appropriately
 []        Event handlers are passed as props to child components
 []        State is manages by parent component functions when appropriate
-[]      There are at least 5 locations in the model (hard-coded or retrieved from a data API)
+[x]      There are at least 5 locations in the model (hard-coded or retrieved from a data API)
 []      There no errors
 []      There are no warnings that resulted from no following the best practices listed in the documentation, such as using key for list items
 []      All code is functional and formatted properly
-
-Next Steps:
--Connect FourSquare
--Add infowindows
--Dynamically populate content in infowindow with data from FourSquare api
--Display default locations in sidebar
--Implement search filter to filter locations in list and markers on map based on user input
--Style website and add responsiveness
--Audit for accessibility and make adjustments as necessary
--Implement service worker
