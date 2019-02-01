@@ -1,44 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Neighborhood Map Project
 
-## Available Scripts
+This is Project 7, and the final capstone project, of the Udacity Front-End Nanodegree program. Starter code was not provided.
 
-In the project directory, you can run:
+The objective of the project is to build a one-page map application from scratch using Google Maps and React. The map is to display a minimum of 5 locations, as well as additional information about those locations that is received from another third-party API.
 
-### `npm start`
+## How to Get Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to view and use map application, you will need to install all the required depedencies and start the server.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+To get started:
 
-### `npm test`
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dependencies Used
 
-### `npm run build`
+  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Map was implemented using the Google Maps JavaScript API [Overview - Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial).
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+  Venues and venue data, including name and address, were pulled from the [FourSquare Places API](https://developer.foursquare.com/docs/api).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  Fonts used are Major Mono Display, for the header, and Montserrat, for all other text. Fonts are from [Google Fonts](https://fonts.google.com/)
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This repository is a project required for completion of the Front End Nanodegree, therefore pull requests are not likely to be accepted.
