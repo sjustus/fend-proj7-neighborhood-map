@@ -4,7 +4,6 @@ import './Responsive.css';
 import Map from './Map.js';
 import Header from './Header.js';
 import Listview from './Listview.js'
-//import attribution from './Powered-by-foursquare-grey.svg'
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +11,6 @@ class App extends Component {
     this.state = {
       venues: [],
       query: '',
-      markers: []
     }
   }
 

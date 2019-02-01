@@ -49,9 +49,9 @@ Checked Box: [x]
 []    List View
 [x]        A list-view of location names is provided and displays all locations and by default
 [x]        Displays the filtered subset of locations when filter is applied
-[x]        Clicking a location on the list displays unique information about the location - [Use infoWindow]
+[]        Clicking a location on the list displays unique information about the location - [Use infoWindow]
 []          Clicking on a location also animates its associated map marker (e.g. bouncing or changing color) - [Review how to do this in videos]
-[]        List functionality is responsive and runs error free
+[x]        List functionality is responsive and runs error free
 []    Map and Markers
 [x]      Map displays all location markers by default
 []        Map also displays the filter subset of location markers when filter is applied - [Learn how to filter map markers]
@@ -84,14 +84,14 @@ Checked Box: [x]
 [x]    Functionality is presented in a usable and responsive manner
 
 []  Accessibility
-[]    Focus
-[]      Focus is appropriately manages allowing users to noticeably tab through each of the important elements of the page
-[]      Modal or interstitial windows appropriately lock focus
-[]    Site elements are defined semantically - [See how to do this in React]
-[]      Elements on the page use appropriate semantic elements
-[]      For those elements in which a semantic element is not available, appropriate ARIA roles are defines
-[]  Accessible Images
-[]    All content-relates images include appropriate alt text that clearly describes the content of the image
+[x]    Focus
+[x]      Focus is appropriately manages allowing users to noticeably tab through each of the important elements of the page
+[x]      Modal or interstitial windows appropriately lock focus
+[x]    Site elements are defined semantically - [See how to do this in React]
+[x]      Elements on the page use appropriate semantic elements
+[x]      For those elements in which a semantic element is not available, appropriate ARIA roles are defines
+[x]  Accessible Images
+[x]    All content-relates images include appropriate alt text that clearly describes the content of the image
 
 []  Offline Use
 []    Service Worker

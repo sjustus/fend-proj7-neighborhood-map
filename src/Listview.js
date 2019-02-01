@@ -24,7 +24,6 @@ class Listview extends Component {
 
     return (
       <section className="listview" aria-label="coffee venues">
-
           <form className="search-venues-bar">
             <div className="search-venues-input-wrapper">
               <input
@@ -37,17 +36,13 @@ class Listview extends Component {
               <label htmlFor="search">Search Venues</label>
             </div>
           </form>
-
           <div className="venues-container">
             <ol className="venues-list">
               {/* Map over showingVenues and display and Listitem for each*/}
               {showingVenues.map((venue, i) => <ListItem venue={venue} key={i} />) }
             </ol>
           </div>
-
       </section>
-
-
     )
   }
 }
