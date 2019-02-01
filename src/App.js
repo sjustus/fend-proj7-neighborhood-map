@@ -4,7 +4,7 @@ import './Responsive.css';
 import Map from './Map.js';
 import Header from './Header.js';
 import Listview from './Listview.js'
-import AttributionImg from './Powered-by-foursquare-grey.svg'
+//import attribution from './Powered-by-foursquare-grey.svg'
 
 class App extends Component {
   constructor(props) {
@@ -74,15 +74,32 @@ class App extends Component {
   initMap = () => {
     // set google to window.google so that google can be accessed
     const google = window.google
-    // create a new map with Milawaukie, OR as inital location
-    const map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 45.4465323, lng: -122.6323315},
-        zoom: 15
-      })
 
-      // map over venues held in state and for each venue
+    // Variable to hold starting center point for map in downtown Milwaukie, OR
+    const myLatLng = {lat: 45.4465323, lng: -122.6323315}
+
+    // Define map settings
+    const mapOptions = {
+      zoom: 15,
+      center: myLatLng,
+    }
+
+    // create a new map with Milawaukie, OR as inital location
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions)
+
+    // Map over each venue in state
     this.state.venues.map(aVenue => {
-      // declare infowindow content
+      // Create map marker
+      const marker = new google.maps.Marker({
+        map: map,
+        position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
+        id: aVenue.venue.id,
+        title: aVenue.venue.name,
+      })
+      // Add markers to map
+      marker.setMap(map)
+
+      // Set infowindow content
       const contentString = `
         <div class="card">
           <div class="card-header">
@@ -92,22 +109,13 @@ class App extends Component {
             <div class="main-description">
               <p>${aVenue.venue.location.address}</p>
             </div>
-            <img src={AttributionImg} alt="Powered By FourSquare" width="150" height="100">
+            <img src={'Powered-by-foursquare-grey.svg'} alt="Powered by FourSquare" />
           </div>
         </div>
       `
-
       // create a new infoWindow
       const infowindow = new google.maps.InfoWindow({
         content: contentString
-      })
-
-      // create a new marker
-      const marker = new google.maps.Marker({
-        map: map,
-        position: {lat:aVenue.venue.location.lat, lng:aVenue.venue.location.lng},
-        id: aVenue.venue.id,
-        title: aVenue.venue.name,
       })
 
       // Add a listener to each marker that triggers an infowindow when clicked
@@ -115,6 +123,7 @@ class App extends Component {
           infowindow.open(map, marker);
         });
     })
+
   }
 
   render() {
